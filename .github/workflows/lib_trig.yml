@@ -1,4 +1,4 @@
-name: lib_trig build and test
+name: lib_trig CI
 
 on:
   push:
