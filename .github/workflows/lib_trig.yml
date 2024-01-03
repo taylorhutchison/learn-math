@@ -1,0 +1,26 @@
+name: lib_trig build and test
+
+on:
+  push:
+    paths:
+      - 'src/lib_trig/**'
+    branches: [ "main" ]
+  pull_request:
+    paths:
+      - 'src/lib_trig/**'
+    branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: cargo build --manifest-path src/lib_trig/Cargo.toml --verbose
+    - name: Run tests
+      run: cargo test --manifest-path src/lib_trig/Cargo.toml --verbose
